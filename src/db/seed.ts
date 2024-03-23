@@ -1,5 +1,9 @@
 /* eslint-disable drizzle/enforce-delete-with-where */
 
+import { faker } from '@faker-js/faker'
+import { createId } from '@paralleldrive/cuid2'
+import chalk from 'chalk'
+import { db } from './connection'
 import {
   authLinks,
   evaluations,
@@ -8,11 +12,7 @@ import {
   restaurants,
   users,
 } from './schema'
-import { faker } from '@faker-js/faker'
-import { db } from './connection'
-import chalk from 'chalk'
 import { orderItems } from './schema/order-items'
-import { createId } from '@paralleldrive/cuid2'
 
 /**
  * Reset database
@@ -55,7 +55,7 @@ const [manager] = await db
   .insert(users)
   .values({
     name: faker.person.fullName(),
-    email: 'diego.schell.f@gmail.com',
+    email: 'rcmonteiro@gmail.com',
     role: 'manager',
   })
   .returning()
